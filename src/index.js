@@ -8,7 +8,7 @@ const ssqlite3 = require('sqlite3').verbose();
 
 //macos,linux os
 //let _dbname = "src//data//sappdb.db"
-let _dbname = "src//data//dashboard.db"
+let _dbname = "src//dashboard.db";
 
 let db = new ssqlite3.Database(_dbname, (err) => {
     if (err) {
@@ -18,6 +18,8 @@ let db = new ssqlite3.Database(_dbname, (err) => {
 });
 
 //SQL Query
-db.all("SELECT * FROM user limit 10", [], (err,rows) => {
+db.all("SELECT * FROM user", (err,rows) => {
+    console.log(err)
+    console.log('a')
     console.log(rows)
 })
