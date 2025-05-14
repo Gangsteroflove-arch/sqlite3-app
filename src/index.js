@@ -17,9 +17,30 @@ let db = new ssqlite3.Database(_dbname, (err) => {
     console.log('Connected successfuly.');
 });
 
+
+//insert user function
+//insert row
+insert_query = "INSERT INTO user(username, password) VALUES(?, ?)"
+values = ["usereeight","pwd8"]
+//db.run(insert_query, values)
+
+//- - log to file
+console.log("# row insert")
+
+
 //SQL Query
 db.all("SELECT * FROM user", (err,rows) => {
     console.log(err)
     console.log('a')
     console.log(rows)
 })
+
+// - - create getUser function - -
+//returns first row
+//db.get("SELECT * FROM user", [], (err, row) => {
+    db.get("SELECT * FROM useer where username=? and password=?", ["userfour,","pwd4"],(err, row) => {
+        if (err) {
+            throw err;
+        }
+        console.log(row)
+    });
